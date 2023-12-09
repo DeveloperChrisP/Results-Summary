@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    :root {
+      /*Colours-Main*/
+      --mainBlockColour1:hsl(252, 100%, 67%);
+      --mainBlockColour2:hsl(241, 81%, 54%);
+      --mainCircleColour1:hsla(256, 72%, 46%, 1);
+      --mainCircleColour2:hsla(241, 72%, 46%, 0);
+      --mainText:hsl(0, 0%, 100%);
+      --secondaryText:hsl(241, 100%, 89%);
+
+      /*Colours-Summary */
+      --shadowColour:hsl(221, 100%, 96%);
+
+      --reaction:hsl(0, 100%, 67%);
+      --memory:hsl(39, 100%, 56%);
+      --verbal:hsl(166, 100%, 37%);
+      --visual:hsl(234, 85%, 45%);
+      --summaryColour:hsl(224, 30%, 27%);
+
+      --reactionOpaque:hsla(0, 100%, 67%, 0.05);
+      --memoryOpaque:hsla(39, 100%, 56%, 0.05);
+      --verbalOpaque:hsla(166, 100%, 37%, 0.05);
+      --visualOpaque:hsla(234, 85%, 45%, 0.05);
+
+      /*Font-weigths*/
+      --standard:500;
+      --bold:700;
+      --bolder:800;
+      
+    }
+    
+    body {
+      margin:0px;
+      height:100vh;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size:1.1rem;
+      font-weight: var(--standard);
+    }
+
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  
+    
+  
+    /*Fonts*/
+    /*Colours*/
+    
+    
+    /*Results layout*/
+
+    /*temporary actions*/
+      h1{
+        margin: 1rem;
+        color:var(--secondaryText);
+        font-weight: var(--bold);
+        font-size: 1.5rem;
+      }
+      
+      .results{
+        display:flex;
+        flex-direction: column;
+        background-image: linear-gradient(var(--mainBlockColour1), var(--mainBlockColour2)); 
+        width:21.438rem; /*343px*/
+        text-align: center;
+        border-radius: 2rem;
+        height:31.25rem;
+        padding:2rem;
+        align-items: center;
+      }
+
+      .results p {
+        color: var(--secondaryText);
+        max-width:16.2rem;
+        margin-bottom: 3rem;
+      }
+      .circle{
+        background-image: linear-gradient(var(--mainCircleColour1), var(--mainCircleColour2));
+        border-radius: 50%;
+        display:flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+                     
+        height:13.5rem;
+        width:13.5rem;
+        margin:2rem 0;
+      }
+
+      .circle p {
+        color:hsla(0, 0%, 100%,0.5);
+        margin:0;
+        
+        
+      }
+        p.score {
+        color:var(--mainText); 
+        font-weight:var(--bold);
+        font-size:4rem;
+        margin:0;
+        padding-bottom: 0;
+        
+      }
+
+      h2 {
+        color:var(--mainText);
+        font-weight: var(--bold);
+        margin-bottom: 0;
+      }
+
+
+    /*Summary layout*/
+
+      .summary {
+        
+        display:flex;
+        flex-direction: column;
+        box-shadow: 1rem 1rem 1rem var(--shadowColour);
+        width:21.438rem; /*343px*/;
+        text-align: center;
+        border-radius: 0 2rem 2rem 0;
+        height:31.25rem;
+        padding:2rem;
+        align-items: center;
+        text-align:center;
+      }
+
+      h3{
+        font-size: 1.7rem;
+        font-weight: var(--bolder);
+        color:var(--summaryColour);
+        width: 95%;
+        text-align: left;
+        margin: 1rem 1rem 1.75rem 0.75rem;
+      }
+      .summary div {
+        display:flex;
+        justify-content: space-between;
+        width:95%;
+        font-weight: var(--bold);
+        padding:1rem 0;
+        margin:0.75rem;
+        color:hsla(224, 30%, 27%,0.5);
+        font-weight: var(--bolder);
+        border-radius: 0.5rem;
+      }
+      .summary .sumScore {
+        color:var(--summaryColour);
+      }
+      .summary img{
+        position:relative;
+        top:4px;
+      }
+      .sumInfo {
+        margin-right: 9.5rem;
+      }
+      .verbal .sumInfo,.visual .sumInfo {
+        margin-right: 10.5rem;
+      }
+      .reaction {
+        background-color:var(--reactionOpaque);
+        
+      }
+      .memory {
+        background-color:var(--memoryOpaque);
+      }
+      .verbal {
+       background-color:var(--verbalOpaque);
+      }
+      .visual {
+        background-color:var(--visualOpaque);
+      }
+      .reaction .sumInfo{color:var(--reaction)}
+      .memory .sumInfo{color:var(--memory)}
+      .verbal .sumInfo{color:var(--verbal)}
+      .visual .sumInfo{color:var(--visual)}
+
+      #continue {
+        background-color: var(--summaryColour);
+        color:var(--mainText);
+        border-radius: 2rem;
+        margin-top:1.75rem;
+        width:95%;
+        padding:1rem 0;
+        display:block;
+      }
+      #continue:hover{background-color: var(--mainBlockColour2);}
+   
+      /*overall layout*/
+      .layout {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height:98vh;
+      }
+
+      @media(max-width:376px){
+        .layout{
+          flex-direction: column;
+          height:100%;
+        }
+        body{
+          height:100%;
+        }
+        .results{
+          border-radius: 0 0 2rem 2rem;
+          height:20rem;
+          padding:1rem 2rem;
+        }
+
+        .results p {
+        margin-bottom: 0;
+        }
+        .circle {
+          margin:0;
+        }
+        p.score {
+          
+          margin:0;
+          padding:0;
+        }
+
+        .summary {
+          
+        box-shadow: none;
+        width:21.438rem; /*343px*/;
+        text-align: center;
+        border-radius: 0;
+        height:100%;
+        padding:1rem 2rem;
+        }
+      h3 {margin: 0px;}
+      .summary div {
+        
+        padding:0.5rem 0;
+        margin:0.25rem;
+        
+      }
+    }
+      footer {}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <div class="results">      
+          <h1>Your Result</h1>
+      <div class="circle">   
+          <p class="score">76</p>
+          <p>of 100</p>
+      </div> 
+          <h2>Great</h2>
+          <p>You scored higher than 65% of the people who have taken these tests.</p>
+    </div>  
+    <div class="summary"> 
+          <h3>Summary</h3>
+      <div class="reaction">
+        <span class="sumInfo">
+          <img src="./assets/images/icon-reaction.svg"- alt=""/>
+          Reaction
+        </span>
+          <span class="sumScore">80</span> / 100
+      </div>
+      <div class="memory">
+        <span class="sumInfo">
+          <img src="./assets/images/icon-memory.svg"- alt=""/>
+          Memory
+        </span>
+          <span class="sumScore">92</span> / 100
+      </div>
+      <div class="verbal">
+        <span class="sumInfo"> 
+          <img src="./assets/images/icon-verbal.svg"- alt=""/>
+          Verbal
+        </span> 
+          <span class="sumScore">61</span> / 100
+      </div>
+      <div class="visual">
+        <span class="sumInfo">
+          <img src="./assets/images/icon-visual.svg"- alt=""/>
+          Visual</span>
+          <span class="sumScore">72</span> / 100
+      </div>
+      <div id="continue">
+          Continue
+      </div>
+    </div>      
+  </div>
+
+<footer> 
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Developer ChrisP</a>.
+  </div>
+</footer>   
+</body>
+</html>
